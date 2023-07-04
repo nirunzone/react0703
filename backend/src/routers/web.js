@@ -1,11 +1,14 @@
 import express from 'express';
 import UserController from '../controllers/UserController.js';
+import NewsController from '../controllers/NewsController.js';
 
 
 const webRoute = express.Router();
-const UserInstance = new UserController();
+const userController = new UserController();
+const newsController = new NewsController();
 
-webRoute.get('/',UserInstance.index);
+webRoute.get('/',userController.index);
+webRoute.get('/',newsController.news);
 
 webRoute.get('/users',(req, res)=>{
     res.send('Hi Tusharika ko users!');
